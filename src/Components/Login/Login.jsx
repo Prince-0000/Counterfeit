@@ -1,10 +1,11 @@
-import { React, useState } from "react";
-import './Login.css';
+import React from "react";
+import { useState } from "react";
+import "./Login.css";
 // import backgroundImage from "./shubham-dhage-JlijbOtSWuw-unsplash.jpg";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [buttonColor, setButtonColor] = useState('red');
+  const [buttonColor, setButtonColor] = useState("red");
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -22,25 +23,38 @@ const Login = () => {
 
   function handleButtonClick(color) {
     setButtonColor(color);
-  }
-
+  };
 
   return (
-    < div className="Wrapper bg" >
-
-
+    
+    <div className="Wrapper bg">
       <div className="card">
-
-
         <form onSubmit={handleSubmit1} className="signup-form">
+          <h1 className="headingone">Login</h1>
 
-        <h1 className="headingone">Login</h1>
+          <div className="buttonBlock">
+            <button
+              id="button1"
+              className="buttons"
+              style={{
+                backgroundColor: buttonColor === "red" ? "white" : null,
+              }}
+              onClick={() => handleButtonClick("red")}
+            >
+              people
+            </button>
+            <button
+              id="button2"
+              className="buttons"
+              style={{
+                backgroundColor: buttonColor === "blue" ? "white" : null,
+              }}
+              onClick={() => handleButtonClick("blue")}
+            >
+              company
+            </button>
+          </div>
 
-        <div className="buttonBlock">
-          <button id="button1"  className="buttons" style={{ backgroundColor: buttonColor === 'red' ? 'white' : null }} onClick={() => handleButtonClick('red')}>people</button>
-          <button id="button2"  className="buttons" style={{ backgroundColor: buttonColor === 'blue' ? 'white' : null }} onClick={() => handleButtonClick('blue')}>company</button>
-        </div>
- 
           <div className="signup-margin">
             <label className="marginn color1">Enter your email</label>
             <input
@@ -57,21 +71,20 @@ const Login = () => {
               onChange={handlePasswordChange}
             />
           </div>
-          <button type="submit" className="login">Sign up</button>
+          <button type="submit" className="login">
+            Sign up
+          </button>
 
-          <h2 className="heading2"> Already have an account? 
-          <span><a href=""> Sign in</a></span>
+          <h2 className="heading2">
+            {" "}
+            Already have an account?
+            <span>
+              <a href="#"> Sign in</a>
+            </span>
           </h2>
-
         </form>
-
-      
       </div>
-
-      </div>
-
-
-
+    </div>
   );
 };
 
