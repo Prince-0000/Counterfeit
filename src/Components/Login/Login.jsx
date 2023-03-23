@@ -4,6 +4,7 @@ import './Login.css';
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [buttonColor, setButtonColor] = useState('white');
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -19,6 +20,10 @@ const Login = () => {
     console.log(`Username: ${username}, Password: ${password}`);
   };
 
+  function handleButtonClick(color) {
+    setButtonColor(color);
+  }
+
 
   return (
     < div className="Wrapper bg" >
@@ -32,11 +37,8 @@ const Login = () => {
         <h1 className="headingone">Login</h1>
 
         <div className="buttonBlock">
-          <label htmlFor="Login" className="slide">people</label>
-          <input type="radio" name="slide" id="Login" checked/>
-          <label htmlFor="signup" className="slide signup">company</label>
-          <input type="radio" name="slide" id="signup" checked/>
-          <div className="slide-tab"></div>
+          <button id="button1"  className="buttons" style={{ backgroundColor: buttonColor === 'red' ? 'white' : null }} onClick={() => handleButtonClick('red')}>people</button>
+          <button id="button2"  className="buttons" style={{ backgroundColor: buttonColor === 'blue' ? 'white' : null }} onClick={() => handleButtonClick('blue')}>company</button>
         </div>
  
           <div className="signup-margin">
