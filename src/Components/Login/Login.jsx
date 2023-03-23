@@ -4,7 +4,7 @@ import './Login.css';
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [buttonColor, setButtonColor] = useState('white');
+  const [buttonColor, setButtonColor] = useState('red');
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
