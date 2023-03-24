@@ -65,7 +65,7 @@ const Login = () => {
   function handleButtonClick(color) {
     setButtonColor(color);
   }
-
+console.log("Hello");
   
   return (
     <div>
