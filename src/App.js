@@ -5,6 +5,8 @@ import DisplayProduct from "./Components/DisplayProduct/DisplayProduct";
 import Login from "./Components/Login/Login";
 import Navbar from "./Components/Navbar/Navbar";
 import Product from './Components/Product/Product';
+import SignUpPeople from "./Components/Login/SignUpPeople";
+import MainLogin from "./Components/Login/MainLogin";
 
 function App() {
 
@@ -14,9 +16,13 @@ function App() {
       <Navbar/>
       <div>
         <Routes>
+          {/* <Route path="/" element={<Login/>}/> */}
           <Route path="/" element={<Login/>}/>
           <Route path="/Verify" element={<DisplayProduct/>}/>
           <Route path="/Product" element={<Product/>}/>
+          
+          <Route path="/SignUpPeople" element={<SignUpPeople/>}/>
+          
         </Routes>
       </div>
       {/* <Login/>
