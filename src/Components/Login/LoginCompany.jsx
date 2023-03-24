@@ -84,7 +84,7 @@ const LoginCompany = () => {
               {" "}
               Already have an account?
               <span>
-                <a href="/SignUpPeople"> Sign in</a>
+                <a href="/SignUpCompany"> Sign in</a>
               </span>
             </h2>
           </form>

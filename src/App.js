@@ -8,6 +8,7 @@ import Product from './Components/Product/Product';
 import SignUpPeople from "./Components/Login/SignUpPeople";
 // import MainLogin from "./Components/Login/MainLogin";
 import Landing from "./Components/Landing/Landing";
+import SignUpCompany from "./Components/Login/SignUpCompany"
 
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Verify" element={<DisplayProduct/>}/>
           <Route path="/Product" element={<Product/>}/>
-          <Route path="/SignUpPeople" element={<SignUpPeople/>}/>      
+          <Route path="/SignUpPeople" element={<SignUpPeople/>}/> 
+          <Route path="/SignUpCompany" element={<SignUpCompany/>}/> 
+
         </Routes>
       </div>
     </div>
