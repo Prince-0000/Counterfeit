@@ -1,0 +1,51 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapperLanding {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bgLanding {
+    background-image: url(./img\ 1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cardPart {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+
+.mainheading {
+    width: 50%;
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.subHeading {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.HomeButton {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    margin: 0.3rem;
+    padding: 0.3rem;
+}

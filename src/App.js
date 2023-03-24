@@ -2,7 +2,7 @@
 // import "./App.css";
 import Login from './Components/Login/Login';
 import Product from './Components/Product/Product';
-
+import Landing from "./Components/Landing/Landing";
 
 function App() {
 
@@ -10,7 +10,8 @@ function App() {
   return (
     <div className=''>
 
-      <Login/>
+    <Landing/>
+      {/* <Login/> */}
       {/* add product */}
       {/* <Product/> */}
 
