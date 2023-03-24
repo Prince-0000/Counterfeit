@@ -11,17 +11,19 @@ import Landing from "./Components/Landing/Landing";
 
 
 function App() {
-  return(
+  return (
     <div className='mainApp'>
-      <Navbar/>
+      <Navbar />
 
       <div>
-        <Routes>   
-          <Route path="/" element={<Landing/>}/>
-          <Route path="/Login" element={<Login/>}/>
-          <Route path="/Verify" element={<DisplayProduct/>}/>
-          <Route path="/Product" element={<Product/>}/>
-          <Route path="/SignUpPeople" element={<SignUpPeople/>}/>      
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/Login" element={<Login />}>
+          <Route path="Verify" element={<DisplayProduct />} />
+          </Route>
+
+          <Route path="/Product" element={<Product />} />
+          <Route path="/SignUpPeople" element={<SignUpPeople />} />
         </Routes>
       </div>
     </div>

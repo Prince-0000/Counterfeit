@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useNavigate } from "react";
 import "./Login.css";
 import "./SignUpPeople";
 import SignUpPeople from "./SignUpPeople";
@@ -9,7 +9,6 @@ import LoginCompany from "./LoginCompany";
 const Login = () => {
   //  LOGIN FOR SWITCH TAB
   const [showComponentOne, setShowComponentOne] = useState(true);
-
   const handleToggleLOG = () => {
     console.log("shifting comp user to company");
     setShowComponentOne(!showComponentOne);
@@ -29,8 +28,8 @@ const Login = () => {
 
   const handleSubmit1 = (event) => {
     event.preventDefault();
-    // Here authentication
-    console.log("call login of compnay ");
+    // // Here authentication
+    // console.log("call login of compnay ");
   };
 
   function handleButtonClick(color) {
@@ -39,7 +38,6 @@ const Login = () => {
 
   return (
     <div>
-
       {showComponentOne ? (
         <div className="Wrapper bg">
           <div className="card">
@@ -89,7 +87,7 @@ const Login = () => {
                 />
               </div>
               <button type="submit" className="login">
-                Sign up
+                LOGIN{" "}
               </button>
 
               <h2 className="heading2">
