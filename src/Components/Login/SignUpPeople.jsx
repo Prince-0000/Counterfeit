@@ -100,7 +100,7 @@ const SignUpPeople = () => {
             />
           </div>
           <button type="submit" className="login" onClick={handleSubmit1}>
-            Sign up
+            Sign up user
           </button>
         </form>
       </div>

@@ -65,6 +65,8 @@ const Login = () => {
   function handleButtonClick(color) {
     setButtonColor(color);
   }
+
+  
   return (
     <div>
       {showComponentOne ? (
@@ -116,7 +118,7 @@ const Login = () => {
                 />
               </div>
               <button type="submit" className="login" onClick={handleSubmit1}>
-                Sign in
+                  Login User
               </button>
 
               <h2 className="heading2">
