@@ -17,6 +17,22 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [buttonColor, setButtonColor] = useState("red");
+  const [User,setUser] = useState({
+    name:"",
+    password:""
+
+  })
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setnote((prev) => {
+      return {
+        ...prev,
+        [name]: value
+      };
+    });
+    console.log(value);
+  }
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -75,16 +91,16 @@ const Login = () => {
                 <label className="marginn color1">Enter your email</label>
                 <input
                   type="email"
-                  id="username"
-                  value={username}
-                  onChange={handleUsernameChange}
+                  name="name"
+                  value={User.name}
+                  onChange={handleChange}
                 />
                 <label className="password color1">Password</label>
                 <input
                   type="password"
-                  id="password"
-                  value={password}
-                  onChange={handlePasswordChange}
+                  name="password"
+                  value={User.password}
+                  onChange={handleChange}
                 />
               </div>
               <button type="submit" className="login">
