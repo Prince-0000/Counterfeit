@@ -34,18 +34,19 @@
   display: flex;
   position: relative;
   justify-content: center;
-  /* align-items: center; */
-  height: 65%;
+  align-items: center;
+  /* height: 75%; */
   width: 30%;
   background-color:  #000231;
   border-radius: 3%;
-  column-gap: 10px;
+  column-gap: 8px;
 }
 
 .headingone {
   text-align: center;
   color: #16419D;
-  font-size: 1.5em;
+  font-size: 2em;
+  /* padding-top: 1.5rem; */
 
 }
 
@@ -78,6 +79,7 @@
   flex-direction: column;
   row-gap: 20px;
   justify-content: space-evenly;
+  overflow-y: hidden;
 }
 
 #password {
@@ -130,6 +132,7 @@
   text-align: center;
   line-gap-override: 1px;
   color: lightgray;
+  font-size: 1rem;
 }
 
 

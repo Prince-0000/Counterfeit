@@ -4,6 +4,7 @@ import "./Login.css";
 import "./SignUpPeople";
 import SignUpPeople from "./SignUpPeople";
 import LoginCompany from "./LoginCompany";
+
 // import backgroundImage from "./shubham-dhage-JlijbOtSWuw-unsplash.jpg";
 const Login = () => {
   //  LOGIN FOR SWITCH TAB

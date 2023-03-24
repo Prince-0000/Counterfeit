@@ -1,8 +1,9 @@
 
-/* .App{
+.App{
 
-    background: radial-gradient(99.31% 255.54% at 0.69% 1.27%, #16419D 12.41%, #000545 100%)
-} */
+    /* background: radial-gradient(99.31% 255.54% at 0.69% 1.27%, #16419D 12.41%, #000545 100%) */
+    /* overflow-y: hidden; */
+}
 .mainApp
 {
   background: radial-gradient(99.31% 255.54% at 0.69% 1.27%, #16419D 12.41%, #000545 100%) 

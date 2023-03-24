@@ -2,7 +2,7 @@ import React from "react";
 import "./Navbar.css";
 const Navbar = () => {
   return (
-    <div>
+    <div >
       <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-bg">
         <a class="navbar-brand" href="/">
           Counterfeit

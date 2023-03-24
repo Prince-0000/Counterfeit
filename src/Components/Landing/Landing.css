@@ -28,10 +28,11 @@
 .cardPart {
     width: 50%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
     color: white;
+    row-gap: 20px;
 }
 
 
@@ -40,20 +41,23 @@
     font-size: 3rem;
     font-weight: 600;
     letter-spacing: 1.5px;
+
     /* css */
     background: linear-gradient(168.06deg, #FFFFFF 8.73%, #232F6A 111.36%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 /* text-fill-color: transparent; */
 }
 
 .subHeading {
+  width: 330px;
     font-size: 1rem;
     text-align: start;
     display: flex;
     align-items: start;
     margin-bottom: 20px;
+    color: #B0B0B0;
 }
 
 .HomeButton {
