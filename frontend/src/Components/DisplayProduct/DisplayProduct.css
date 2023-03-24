@@ -1,0 +1,17 @@
+.container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+/*  */
+.display-output{
+    color: white;
+    
+}
+.display-img
+{
+    border: 4px red;
+    border-style: dotted;
+}

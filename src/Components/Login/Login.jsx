@@ -1,41 +1,70 @@
 import React from "react";
-import { useState, useNavigate } from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import "./SignUpPeople";
 import SignUpPeople from "./SignUpPeople";
 import LoginCompany from "./LoginCompany";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 // import backgroundImage from "./shubham-dhage-JlijbOtSWuw-unsplash.jpg";
 const Login = () => {
+  const navigate = useNavigate();
   //  LOGIN FOR SWITCH TAB
   const [showComponentOne, setShowComponentOne] = useState(true);
   const handleToggleLOG = () => {
     console.log("shifting comp user to company");
     setShowComponentOne(!showComponentOne);
   };
-  //--------------
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // //--------------
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
   const [buttonColor, setButtonColor] = useState("red");
+  const [User,setUser] = useState({
+    name:"",
+    password:""
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
+  })
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setUser((prev) => {
+      return {
+        ...prev,
+        [name]: value
+      };
+    });
+    console.log(value);
+  }
+
+  // const handleUsernameChange = (event) => {
+  //   setUsername(event.target.value);
+  // };
+
+  // const handlePasswordChange = (event) => {
+  //   setPassword(event.target.value);
+  // };
 
   const handleSubmit1 = (event) => {
     event.preventDefault();
-    // // Here authentication
-    // console.log("call login of compnay ");
+    // Here authentication
+    signInWithEmailAndPassword(auth, User.name, User.password)
+    .then(async (res) => {
+      console.log(res);
+    
+      
+      navigate("/Verify");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+    console.log("call login of compnay ");
   };
 
   function handleButtonClick(color) {
     setButtonColor(color);
   }
-
   return (
     <div>
       {showComponentOne ? (
@@ -74,27 +103,27 @@ const Login = () => {
                 <label className="marginn color1">Enter your email</label>
                 <input
                   type="email"
-                  id="username"
-                  value={username}
-                  onChange={handleUsernameChange}
+                  name="name"
+                  value={User.name}
+                  onChange={handleChange}
                 />
                 <label className="password color1">Password</label>
                 <input
                   type="password"
-                  id="password"
-                  value={password}
-                  onChange={handlePasswordChange}
+                  name="password"
+                  value={User.password}
+                  onChange={handleChange}
                 />
               </div>
-              <button type="submit" className="login">
-                LOGIN{" "}
+              <button type="submit" className="login" onClick={handleSubmit1}>
+                Sign in
               </button>
 
               <h2 className="heading2">
                 {" "}
                 Already have an account?
                 <span>
-                  <a href="/SignUpPeople"> Sign in</a>
+                  <a href="/SignUpPeople"> Sign up</a>
                 </span>
               </h2>
             </form>
