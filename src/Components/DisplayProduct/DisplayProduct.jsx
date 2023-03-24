@@ -24,7 +24,7 @@ const DisplayProduct = () => {
               <div className="row">Product Desc</div>
             </div>
             <div class="col">
-              <div className="display-img">kljlfsjaflkjasdf</div>
+              <div className="display-img">image will be here</div>
             </div>
           </div>
         </div>

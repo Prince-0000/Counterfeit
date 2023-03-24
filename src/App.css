@@ -3,7 +3,10 @@
 
     background: radial-gradient(99.31% 255.54% at 0.69% 1.27%, #16419D 12.41%, #000545 100%)
 } */
-
+.mainApp
+{
+  background: radial-gradient(99.31% 255.54% at 0.69% 1.27%, #16419D 12.41%, #000545 100%) 
+}
 .product{
     
     display: flex;
