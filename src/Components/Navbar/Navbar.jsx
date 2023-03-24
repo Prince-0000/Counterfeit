@@ -1,10 +1,10 @@
 import React from "react";
-
+import "./Navbar.css";
 const Navbar = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-bg">
+        <a class="navbar-brand" href="/">
           Counterfeit
         </a>
         <button
@@ -20,10 +20,10 @@ const Navbar = () => {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">
-              Home <span class="sr-only">(current)</span>
+            <a class="nav-item nav-link active" href="/">
+              Home <span class="sr-only"></span>
             </a>
-            <a class="nav-item nav-link" href="/">
+            <a class="nav-item nav-link" href="/Login">
               Login
             </a>
             <a class="nav-item nav-link" href="/Verify">
