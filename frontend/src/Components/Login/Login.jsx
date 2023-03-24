@@ -9,7 +9,7 @@ const Login = () => {
   const [buttonColor, setButtonColor] = useState("red");
   const [User, setUser] = useState({
     name:"",
-    password:""
+    password:"",
   });
 
   const handleChange = (event) =>{
@@ -23,6 +23,8 @@ return{
 
   }
 
+
+
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
@@ -34,13 +36,21 @@ return{
   const handleSubmit1 = (event) => {
     event.preventDefault();
     // Here authentication
-    console.log(User);
+    // console.log(User);
 
 
-    axios.post("http://localhost:3001/api/SignUp",User);
+    axios.post("http://localhost:3001/api/people/SignUp",User);
     
     // console.log(`Username: ${username}, Password: ${password}`);
   };
+
+
+  //login
+
+  const handleLogin = ()=>{
+    console.log(User);
+    axios.post("http://localhost:3001/api/people/SignIn",User);
+  }
 
   function handleButtonClick(color) {
     setButtonColor(color);
@@ -100,7 +110,7 @@ return{
             {" "}
             Already have an account?
             <span>
-              <a href="#"> Sign in</a>
+              <a href="#"  onClick={handleLogin}> Sign in</a>
             </span>
           </h2>
         </form>
