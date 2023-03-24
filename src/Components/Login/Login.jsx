@@ -1,11 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import "./SignUpPeople";
 import SignUpPeople from "./SignUpPeople";
 import LoginCompany from "./LoginCompany";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
+
 // import backgroundImage from "./shubham-dhage-JlijbOtSWuw-unsplash.jpg";
 const Login = () => {
+  const navigate = useNavigate();
   //  LOGIN FOR SWITCH TAB
   const [showComponentOne, setShowComponentOne] = useState(true);
 
@@ -45,12 +50,23 @@ const Login = () => {
   const handleSubmit1 = (event) => {
     event.preventDefault();
     // Here authentication
+    signInWithEmailAndPassword(auth, User.name, User.password)
+    .then(async (res) => {
+    
+      
+      navigate("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
     console.log("call login of compnay ");
   };
 
   function handleButtonClick(color) {
     setButtonColor(color);
   }
+
+
 
   return (
     <div>
@@ -103,15 +119,15 @@ const Login = () => {
                   onChange={handleChange}
                 />
               </div>
-              <button type="submit" className="login">
-                Sign up
+              <button type="submit" className="login" onClick={handleSubmit1}>
+                Sign in
               </button>
 
               <h2 className="heading2">
                 {" "}
                 Already have an account?
                 <span>
-                  <a href="/SignUpPeople"> Sign in</a>
+                  <a href="/SignUpPeople"> Sign up</a>
                 </span>
               </h2>
             </form>
