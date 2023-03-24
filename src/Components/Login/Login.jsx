@@ -25,7 +25,7 @@ const Login = () => {
 
   function handleChange(event) {
     const { name, value } = event.target;
-    setnote((prev) => {
+    setUser((prev) => {
       return {
         ...prev,
         [name]: value

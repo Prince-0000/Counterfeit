@@ -1,11 +1,28 @@
 import React from "react";
 import { useState } from "react";
 import "./SignUpPeople.css";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const SignUpPeople = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [buttonColor, setButtonColor] = useState("red");
+  const [User,setUser] = useState({
+    name:"",
+    password:""
+
+  })
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setUser((prev) => {
+      return {
+        ...prev,
+        [name]: value
+      };
+    });
+    console.log(value);
+  }
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -18,7 +35,18 @@ const SignUpPeople = () => {
   const handleSubmit1 = (event) => {
     event.preventDefault();
     // Here authentication
-    console.log(`Username: ${username}, Password: ${password}`);
+    console.log(User);
+    createUserWithEmailAndPassword(auth, User.name, User.password)
+      .then(async (res) => {
+        const user = res.user;
+        await updateProfile(user, {
+          displayName: User.name,
+        });
+      })
+      .catch((err) => {
+       
+        console.log(err.message);
+      });
   };
 
   function handleButtonClick(color) {
@@ -58,19 +86,19 @@ const SignUpPeople = () => {
             <label className="marginn color1">Enter your email</label>
             <input
               type="email"
-              id="username"
-              value={username}
-              onChange={handleUsernameChange}
+              name="name"
+              value={User.name}
+              onChange={handleChange}
             />
             <label className="password color1">Password</label>
             <input
               type="password"
-              id="password"
-              value={password}
-              onChange={handlePasswordChange}
+              name="password"
+              value={User.password}
+              onChange={handleChange}
             />
           </div>
-          <button type="submit" className="login">
+          <button type="submit" className="login" onClick={handleSubmit1}>
             Sign up
           </button>
         </form>
