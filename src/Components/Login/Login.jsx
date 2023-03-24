@@ -52,9 +52,10 @@ const Login = () => {
     // Here authentication
     signInWithEmailAndPassword(auth, User.name, User.password)
     .then(async (res) => {
+      console.log(res);
     
       
-      navigate("/");
+      navigate("/Verify");
     })
     .catch((err) => {
       console.log(err);
