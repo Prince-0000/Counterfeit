@@ -9,17 +9,16 @@ const SignUpPeople = () => {
   // const [password, setPassword] = useState("");
   const [buttonColor, setButtonColor] = useState("red");
 
-  const [User,setUser] = useState({
-    name:"",
-    password:""
-
-  })
+  const [User, setUser] = useState({
+    name: "",
+    password: "",
+  });
   function handleChange(event) {
     const { name, value } = event.target;
     setUser((prev) => {
       return {
         ...prev,
-        [name]: value
+        [name]: value,
       };
     });
     console.log(value);
@@ -45,9 +44,15 @@ const SignUpPeople = () => {
         });
       })
       .catch((err) => {
-       
         console.log(err.message);
       });
+      
+      {
+        setUser({
+          name: "",
+          password: "",
+        });
+      }
   };
 
   function handleButtonClick(color) {
@@ -58,9 +63,9 @@ const SignUpPeople = () => {
     <div className="Wrapper bg">
       <div className="card">
         <form onSubmit={handleSubmit1} className="signup-form">
-          <h1 className="headingone">Sign UP</h1>
+          <h1 className="headingone">Sign UP company </h1>
 
-          <div className="buttonBlock">
+          {/* <div className="buttonBlock">
             <button
               id="button1"
               className="buttons"
@@ -69,7 +74,7 @@ const SignUpPeople = () => {
               }}
               onClick={() => handleButtonClick("red")}
             >
-              people
+              Sign Up company
             </button>
             <button
               id="button2"
@@ -81,7 +86,7 @@ const SignUpPeople = () => {
             >
               company
             </button>
-          </div>
+          </div> */}
 
           <div className="signup-margin">
             <label className="marginn color1">Enter your email</label>
@@ -100,8 +105,15 @@ const SignUpPeople = () => {
             />
           </div>
           <button type="submit" className="login" onClick={handleSubmit1}>
-            Sign up user
+            Sign up company
           </button>
+          <h2 className="heading2">
+            {" "}
+             Have an account 
+            <span>
+              <a href="/Login">Login </a>
+            </span>
+          </h2>
         </form>
       </div>
     </div>

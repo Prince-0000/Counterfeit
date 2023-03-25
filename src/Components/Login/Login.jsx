@@ -17,8 +17,8 @@ const Login = () => {
     console.log("shifting comp user to company");
     setShowComponentOne(!showComponentOne);
   };
-  
-  const [buttonColor, setButtonColor] = useState("red");
+
+  // const [buttonColor, setButtonColor] = useState("red");
   const [User, setUser] = useState({
     name: "",
     password: "",
@@ -40,9 +40,9 @@ const Login = () => {
     // Here authentication
     signInWithEmailAndPassword(auth, User.name, User.password)
       .then(async (res) => {
-        console.log(res);
+        console.log('succesfull login ',res);
 
-        navigate("/Verify");
+        navigate("/Product");
       })
       .catch((err) => {
         console.log(err);
@@ -50,9 +50,9 @@ const Login = () => {
     console.log("call login of compnay ");
   };
 
-  function handleButtonClick(color) {
-    setButtonColor(color);
-  }
+  // function handleButtonClick(color) {
+  //   setButtonColor(color);
+  // }
   console.log("Hello");
 
   return (
@@ -60,10 +60,10 @@ const Login = () => {
       {showComponentOne ? (
         <div className="Wrapper bg">
           <div className="card">
-            <form onSubmit={handleSubmit1} className="signup-form">
+            <form  className="signup-form">
               <h1 className="headingone">Login</h1>
 
-              <div className="buttonBlock">
+              {/* <div className="buttonBlock">
                 <button
                   id="button1"
                   className="buttons"
@@ -74,7 +74,7 @@ const Login = () => {
                   // }
                   onClick={handleToggleLOG}
                 >
-                  people
+                  Company login 
                 </button>
                 <button
                   id="button2"
@@ -87,17 +87,17 @@ const Login = () => {
                 >
                   company
                 </button>
-              </div>
+              </div> */}
 
               <div className="signup-margin">
-                <label className="marginn color1">Enter your email</label>
+                <label className="marginn color1">Enter company email</label>
                 <input
                   type="email"
                   name="name"
                   value={User.name}
                   onChange={handleChange}
                 />
-                <label className="password color1">Password</label>
+                <label className="password color1">Company Password</label>
                 <input
                   type="password"
                   name="password"
@@ -106,12 +106,12 @@ const Login = () => {
                 />
               </div>
               <button type="submit" className="login" onClick={handleSubmit1}>
-                Login User
+                Login Company
               </button>
 
               <h2 className="heading2">
                 {" "}
-                Already have an account?
+               Create New account ?
                 <span>
                   <a href="/SignUpPeople"> Sign up</a>
                 </span>
@@ -120,7 +120,7 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <LoginCompany />
+        <SignUpPeople/>
       )}
     </div>
   );
