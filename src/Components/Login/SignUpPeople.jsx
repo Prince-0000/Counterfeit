@@ -15,7 +15,7 @@ const SignUpPeople = () => {
     const [account, setAccount] = useState("none");
     useEffect(()=>{
     const connectWallet = async () => {
-      const contractAddress = "0x3CB211442184b930B776646135b471f8256506cc"; //contract address
+      const contractAddress = "0x149b73b0c5c6260bE6Af670c354bF3f53dCA5758"; //contract address
       const contractAbi = abi.abi; //fetching abi
       console.log(contractAbi);
       try {
@@ -65,7 +65,7 @@ const SignUpPeople = () => {
     // console.log(con.toString());
     // console.log("Number");
     // console.log(con.toNumber());
-    const tx = await contract.createCompany("My Company");
+    const tx = await contract.createCompany(names);
 
     // Wait for the transaction to be mined
     const receipt = await tx.wait();
@@ -81,7 +81,6 @@ const SignUpPeople = () => {
     // console.log(name);
     console.log(registrationNumber);
     alert(registrationNumber);
-
   }
   const [User, setUser] = useState({
     name: "",
