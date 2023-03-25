@@ -20,10 +20,11 @@ const getUserData = (event) => {
 };
 
 const { email, password } = user;
-// https://extended-creek-380015-default-rtdb.asia-southeast1.firebasedatabase.app/
+
+// https://extended-creek-380015-default-rtdb.asia-southeast1.firebasedatabase.app/CompanySignUpDetails
 const postData = async (e) => {
   e.preventDefault();
-  try {
+   
     const res = await fetch(
       "https://extended-creek-380015-default-rtdb.asia-southeast1.firebasedatabase.app/CompanySignUpDetails.json",
       {
@@ -47,9 +48,9 @@ const postData = async (e) => {
 
     const data = await res.json();
     console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
+//      catch (error) {
+//     console.log(error);
+//   }
 };
 
 function handleButtonClick(color) {

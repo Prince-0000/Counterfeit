@@ -7,7 +7,7 @@ import SignUpPeople from "./SignUpPeople";
 import LoginCompany from "./LoginCompany";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-
+import SignUpCompany from "./SignUpCompany";
 // import backgroundImage from "./shubham-dhage-JlijbOtSWuw-unsplash.jpg";
 const Login = () => {
   const navigate = useNavigate();
@@ -17,56 +17,44 @@ const Login = () => {
     console.log("shifting comp user to company");
     setShowComponentOne(!showComponentOne);
   };
-  // //--------------
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
+  
   const [buttonColor, setButtonColor] = useState("red");
-  const [User,setUser] = useState({
-    name:"",
-    password:""
-
-  })
+  const [User, setUser] = useState({
+    name: "",
+    password: "",
+  });
 
   function handleChange(event) {
     const { name, value } = event.target;
     setUser((prev) => {
       return {
         ...prev,
-        [name]: value
+        [name]: value,
       };
     });
     console.log(value);
   }
 
-  // const handleUsernameChange = (event) => {
-  //   setUsername(event.target.value);
-  // };
-
-  // const handlePasswordChange = (event) => {
-  //   setPassword(event.target.value);
-  // };
-
   const handleSubmit1 = (event) => {
     event.preventDefault();
     // Here authentication
     signInWithEmailAndPassword(auth, User.name, User.password)
-    .then(async (res) => {
-      console.log(res);
-    
-      
-      navigate("/Verify");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then(async (res) => {
+        console.log(res);
+
+        navigate("/Verify");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log("call login of compnay ");
   };
 
   function handleButtonClick(color) {
     setButtonColor(color);
   }
-console.log("Hello");
-  
+  console.log("Hello");
+
   return (
     <div>
       {showComponentOne ? (
@@ -118,7 +106,7 @@ console.log("Hello");
                 />
               </div>
               <button type="submit" className="login" onClick={handleSubmit1}>
-                  Login User
+                Login User
               </button>
 
               <h2 className="heading2">
