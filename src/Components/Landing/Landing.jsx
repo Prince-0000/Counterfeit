@@ -14,7 +14,7 @@ const Landing = () => {
   return (
     <div className="wrapperLanding bgLanding">
       <div className="cardPart">
-        <div className="mainheading">
+        <div className="mainheading" data-aos="fade-down">
           <h2>Eliminate Doubt</h2>
           <h2>& Ensure Authenticity</h2>
         </div>

@@ -59,7 +59,9 @@ const Login = () => {
     <div>
       {showComponentOne ? (
         <div className="Wrapper bg">
-          <div className="card">
+          <div className="card" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">>
             <form  className="signup-form">
               <h1 className="headingone">Login</h1>
 

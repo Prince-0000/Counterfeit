@@ -1,3 +1,10 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+
 .div-product
 {
     display: flex;
@@ -17,10 +24,22 @@
 
 }
 .label-product{
-    font-weight: 400;
+    font-weight: 600;
     color: aliceblue;
+    margin-bottom: 10px;
 }
 .product{
     background: radial-gradient(99.31% 255.54% at 0.69% 1.27%, #16419D 12.41%, #000545 100%);
+    width: 100vw;
+    height: 100vh;
+}
+
+/* .submit-product {
+    width: 50px;
+} */
+
+.ButtonParent {
+    display: flex;
+    justify-content: center;
 
 }

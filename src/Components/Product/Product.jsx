@@ -83,9 +83,11 @@ const Product = () => {
                 onChange={(event)=>setImage(event.target.value)}
               />
             </div> */}
-            <button type="submit" className="submit-product">
+
+            <div className="ButtonParent"><button type="submit" className="submit-product">
               Submit
-            </button>
+            </button></div>
+
           </form>
         </div>
       </div>
