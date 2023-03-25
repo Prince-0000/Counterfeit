@@ -1,18 +1,48 @@
-.container
+.big
 {
+    height: 100vh;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
-    color: white;
-    background: radial-gradient(99.31% 255.54% at 0.69% 1.27%, #16419D 12.41%, #000545 100%);
+    color: whitesmoke;
 }
-/*  */
-.display-output{
-    color: white;
-    
+.div
+{ display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+   
 }
-.display-img
+.input-box{
+    margin-bottom: 25px;
+}
+.label-product{
+    font-weight: 400;
+    color: aliceblue;
+}
+
+.button-dis{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+
+.verified
 {
-    border: 4px red;
-    border-style: dotted;
+    border: 5px purple;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.un-verified
+{
+    border: 5px orange;
+    border-style: solid;
 }

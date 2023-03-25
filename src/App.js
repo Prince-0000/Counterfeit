@@ -11,10 +11,11 @@ import SignUpPeople from "./Components/Login/SignUpPeople";
 import Landing from "./Components/Landing/Landing";
 
 
+
 function App() {
-  useEffect(() => {
-    <contract />
-  }, [])
+  // useEffect(() => {
+  //   <contract />
+  // }, [])
   return (
     <div className='mainApp'>
       <Navbar />
