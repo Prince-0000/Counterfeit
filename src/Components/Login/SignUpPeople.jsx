@@ -1,14 +1,87 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import abi from "../../build/Counterfeit.json";
 import "./SignUpPeople.css";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../fire";
 
 const SignUpPeople = () => {
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [buttonColor, setButtonColor] = useState("red");
+    const [state, setState] = useState({
+      provider: null,
+      signer: null,
+      contract: null,
+    });
+    const [account, setAccount] = useState("none");
+    useEffect(()=>{
+    const connectWallet = async () => {
+      const contractAddress = "0x149b73b0c5c6260bE6Af670c354bF3f53dCA5758"; //contract address
+      const contractAbi = abi.abi; //fetching abi
+      console.log(contractAbi);
+      try {
+        const { ethereum } = window;
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        if (ethereum) {
+          const account = await provider.send("eth_requestAccounts", []);
+          window.ethereum.on("chainChanged", () => {
+            window.location.reload();
+          });
+          window.ethereum.on("accountsChanged", () => {
+            window.location.reload();
+          });
 
+          const signer = provider.getSigner();
+          console.log(signer);
+          const contract = new ethers.Contract(
+            contractAddress,
+            contractAbi,
+            signer
+          );
+          // const amount = {value:ethers.utils.parseEther("0.00000001")};
+          // await contract.buyCoffee("Prince","Bro",amount);
+          // const detail = await contract.getDetails();
+          // console.log("Detail: ",detail);
+          setState({ provider, signer, contract });
+          setAccount(account);
+          // console.log(account);
+        } else {
+          alert("Please install metamask");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    connectWallet();
+  }, []);
+  const create = async () => {
+    const { contract } = state;
+    const names = document.querySelector("#name").value;
+    console.log(names);
+
+    // const con = await contract.createCompany(name);
+    // console.log("simple");
+    // console.log(con);
+    // console.log("string");
+    // console.log(con.toString());
+    // console.log("Number");
+    // console.log(con.toNumber());
+    const tx = await contract.createCompany(names);
+
+    // Wait for the transaction to be mined
+    const receipt = await tx.wait();
+    
+    // Retrieve the event emitted by the contract
+    const event = receipt.events.find((event) => event.event === "CompanyCreated");
+    
+    // Extract the parameters from the event
+    const owner = event.args.owner;
+    const name = event.args.name;
+    const registrationNumber = event.args.registrationNumber;
+    // console.log(owner);
+    // console.log(name);
+    console.log(registrationNumber);
+    alert(registrationNumber);
+  }
   const [User, setUser] = useState({
     name: "",
     password: "",
@@ -42,6 +115,7 @@ const SignUpPeople = () => {
         await updateProfile(user, {
           displayName: User.name,
         });
+        create();
       })
       .catch((err) => {
         console.log(err.message);
@@ -61,8 +135,12 @@ const SignUpPeople = () => {
           <h1 className="headingone">Sign UP company </h1>
 
           <div className="signup-margin">
+          {/* <input type="text" id="name" className="form-control" placeholder="Enter your name"></input> */}
+            {/* </div> */}
           <label className="marginn color1">Enter Company Name</label>
             <input
+              id="name"
+              placeholder = "Enter company name"
               type="text"
               name="name"
               value={compName}
