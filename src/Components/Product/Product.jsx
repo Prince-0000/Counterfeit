@@ -14,6 +14,7 @@ const Product = () => {
     regNo: "",
     productName: "",
     description: "",
+    
   });
   const handleSubmit = (event) => {
     event.preventDefault();
