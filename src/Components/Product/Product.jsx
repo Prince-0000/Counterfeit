@@ -5,11 +5,6 @@ import { ethers } from "ethers";
 import abi from "../../build/Counterfeit.json";
 
 const Product = () => {
-  // const [companyId, setCompanyId] = useState(0);
-  // const [productName, setProductName] = useState("");
-  // const [productId, setProductId] = useState("");
-  // const [image, setImage] = useState("");
-  // const [description,setDescription]=useState("");
 
   // state of data
   const [product, setProduct] = useState({

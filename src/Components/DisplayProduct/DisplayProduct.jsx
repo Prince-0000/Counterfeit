@@ -3,16 +3,7 @@ import "./DisplayProduct.css";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 const DisplayProduct = () => {
-  // const [companyId, setCompanyId] = useState(0);
-  // const [productName, setProductName] = useState("");
-  // const [productId, setProductId] = useState("");
-  // const [image, setImage] = useState("");
-  // const [description, setDescription] = useState("");
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // here put data in object of product from block chain
-  // };
-  // const [idFinal,setIdFinal]=useState(null);
+
   useEffect(() => {
     // --------
    
