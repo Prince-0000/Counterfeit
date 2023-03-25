@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { ethers } from "ethers";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import "./SignUpPeople";
@@ -41,7 +42,22 @@ const Login = () => {
     signInWithEmailAndPassword(auth, User.name, User.password)
       .then(async (res) => {
         console.log('succesfull login ',res);
-
+        const c = async () => {
+          const { ethereum } = window;
+            const provider = new ethers.providers.Web3Provider(ethereum);
+            if (ethereum) {
+              const account = await provider.send("eth_requestAccounts", []);
+              window.ethereum.on("chainChanged", () => {
+                window.location.reload();
+              });
+              window.ethereum.on("accountsChanged", () => {
+                window.location.reload();
+              });
+            }else{
+              alert("Please install metamask")
+            }
+        }
+        c();
         navigate("/Product");
       })
       .catch((err) => {
@@ -62,33 +78,6 @@ const Login = () => {
           <div className="card">
             <form  className="signup-form">
               <h1 className="headingone">Login</h1>
-
-              {/* <div className="buttonBlock">
-                <button
-                  id="button1"
-                  className="buttons"
-                  style={{
-                    backgroundColor: buttonColor === "red" ? "white" : null,
-                  }}
-                  // onClick={() => handleButtonClick("red")
-                  // }
-                  onClick={handleToggleLOG}
-                >
-                  Company login 
-                </button>
-                <button
-                  id="button2"
-                  className="buttons"
-                  style={{
-                    backgroundColor: buttonColor === "blue" ? "white" : null,
-                  }}
-                  // onClick={() => handleButtonClick("blue")}
-                  onClick={handleToggleLOG}
-                >
-                  company
-                </button>
-              </div> */}
-
               <div className="signup-margin">
                 <label className="marginn color1">Enter company email</label>
                 <input

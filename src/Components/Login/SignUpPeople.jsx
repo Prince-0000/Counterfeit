@@ -5,9 +5,6 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../fire";
 
 const SignUpPeople = () => {
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [buttonColor, setButtonColor] = useState("red");
 
   const [User, setUser] = useState({
     name: "",
