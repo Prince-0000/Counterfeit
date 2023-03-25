@@ -4,11 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import "./SignUpPeople";
 import SignUpPeople from "./SignUpPeople";
-import LoginCompany from "./LoginCompany";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import SignUpCompany from "./SignUpCompany";
-// import backgroundImage from "./shubham-dhage-JlijbOtSWuw-unsplash.jpg";
+
 const Login = () => {
   const navigate = useNavigate();
   //  LOGIN FOR SWITCH TAB
@@ -18,7 +16,7 @@ const Login = () => {
     setShowComponentOne(!showComponentOne);
   };
 
-  // const [buttonColor, setButtonColor] = useState("red");
+
   const [User, setUser] = useState({
     name: "",
     password: "",
@@ -41,7 +39,6 @@ const Login = () => {
     signInWithEmailAndPassword(auth, User.name, User.password)
       .then(async (res) => {
         console.log('succesfull login ',res);
-
         navigate("/Product");
       })
       .catch((err) => {

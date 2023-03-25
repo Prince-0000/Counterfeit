@@ -30,6 +30,8 @@ const SignUpPeople = () => {
     setCompName(event.target.value);
     console.log(compName);
   }
+
+  
   const handleSubmit1 = (event) => {
     event.preventDefault();
     // Here authentication
