@@ -7,13 +7,16 @@ import { auth } from "../../firebase";
 const SignUpPeople = () => {
   // const [username, setUsername] = useState("");
   // const [password, setPassword] = useState("");
-  const [buttonColor, setButtonColor] = useState("red");
+  // const [buttonColor, setButtonColor] = useState("red");
 
   const [User, setUser] = useState({
     name: "",
     password: "",
   });
+  const [compName,setCompName]=useState('');
+  
   function handleChange(event) {
+
     const { name, value } = event.target;
     setUser((prev) => {
       return {
@@ -23,15 +26,10 @@ const SignUpPeople = () => {
     });
     console.log(value);
   }
-
-  // const handleUsernameChange = (event) => {
-  //   setUsername(event.target.value);
-  // };
-
-  // const handlePasswordChange = (event) => {
-  //   setPassword(event.target.value);
-  // };
-
+  const handleNameChange=(event)=>{
+    setCompName(event.target.value);
+    console.log(compName);
+  }
   const handleSubmit1 = (event) => {
     event.preventDefault();
     // Here authentication
@@ -54,41 +52,20 @@ const SignUpPeople = () => {
         });
       }
   };
-
-  function handleButtonClick(color) {
-    setButtonColor(color);
-  }
-
   return (
     <div className="Wrapper bg">
       <div className="card">
         <form onSubmit={handleSubmit1} className="signup-form">
           <h1 className="headingone">Sign UP company </h1>
 
-          {/* <div className="buttonBlock">
-            <button
-              id="button1"
-              className="buttons"
-              style={{
-                backgroundColor: buttonColor === "red" ? "white" : null,
-              }}
-              onClick={() => handleButtonClick("red")}
-            >
-              Sign Up company
-            </button>
-            <button
-              id="button2"
-              className="buttons"
-              style={{
-                backgroundColor: buttonColor === "blue" ? "white" : null,
-              }}
-              onClick={() => handleButtonClick("blue")}
-            >
-              company
-            </button>
-          </div> */}
-
           <div className="signup-margin">
+          <label className="marginn color1">Enter Company Name</label>
+            <input
+              type="text"
+              name="name"
+              value={compName}
+              onChange={handleNameChange}
+            />
             <label className="marginn color1">Enter your email</label>
             <input
               type="email"
