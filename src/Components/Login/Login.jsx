@@ -6,7 +6,7 @@ import "./SignUpPeople";
 import SignUpPeople from "./SignUpPeople";
 import LoginCompany from "./LoginCompany";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../Firebase";
 import SignUpCompany from "./SignUpCompany";
 // import backgroundImage from "./shubham-dhage-JlijbOtSWuw-unsplash.jpg";
 const Login = () => {

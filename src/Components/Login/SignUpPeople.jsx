@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./SignUpPeople.css";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../Firebase";
 
 const SignUpPeople = () => {
   // const [username, setUsername] = useState("");
