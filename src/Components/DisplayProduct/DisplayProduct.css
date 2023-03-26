@@ -16,10 +16,7 @@
 }
 .input-box{
     margin-bottom: 25px;
-<<<<<<< HEAD
-=======
-    color: #000;
->>>>>>> 87258f2541e2f650959fdd48bfe933a2ec8e3f17
+    color: #0000;
 }
 .label-product{
     font-weight: 400;
@@ -48,9 +45,5 @@
 .un-verified
 {
     border: 5px orange;
-<<<<<<< HEAD
-    border-style: solid;
-=======
     border-style: solid;
->>>>>>> 87258f2541e2f650959fdd48bfe933a2ec8e3f17
 }
