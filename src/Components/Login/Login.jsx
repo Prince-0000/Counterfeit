@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { ethers } from "ethers";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import "./SignUpPeople";
 import SignUpPeople from "./SignUpPeople";
@@ -12,10 +12,10 @@ const Login = () => {
   const navigate = useNavigate();
   //  LOGIN FOR SWITCH TAB
   const [showComponentOne, setShowComponentOne] = useState(true);
-  const handleToggleLOG = () => {
-    console.log("shifting comp user to company");
-    setShowComponentOne(!showComponentOne);
-  };
+  // const handleToggleLOG = () => {
+  //   console.log("shifting comp user to company");
+  //   setShowComponentOne(!showComponentOne);
+  // };
 
 
   const [User, setUser] = useState({
@@ -69,13 +69,15 @@ const Login = () => {
   // function handleButtonClick(color) {
   //   setButtonColor(color);
   // }
-  console.log("Hello");
+
 
   return (
     <div>
       {showComponentOne ? (
         <div className="Wrapper bg">
-          <div className="card">
+          <div className="card" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
             <form  className="signup-form">
               <h1 className="headingone">Login</h1>
               <div className="signup-margin">
