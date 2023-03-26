@@ -14,9 +14,8 @@ const DisplayProduct = () => {
   useEffect(() => {
     // --------
     const connectWallet = async () => {
-      const contractAddress = "0x149b73b0c5c6260bE6Af670c354bF3f53dCA5758"; //contract address
+      const contractAddress = "0x6830dA99A15dA10ADEa9E4E116084b56c47d3ae4"; //contract address
       const contractAbi = abi.abi; //fetching abi
-      console.log(contractAbi);
       try {
         const { ethereum } = window;
         const provider = new ethers.providers.Web3Provider(ethereum);
@@ -30,7 +29,6 @@ const DisplayProduct = () => {
           });
 
           const signer = provider.getSigner();
-          console.log(signer);
           const contract = new ethers.Contract(
             contractAddress,
             contractAbi,
@@ -38,7 +36,6 @@ const DisplayProduct = () => {
           );
           setState({ provider, signer, contract });
           setAccount(account);
-          console.log(account);
         } else {
           alert("Please install metamask");
         }
@@ -56,18 +53,13 @@ const DisplayProduct = () => {
     description: null,
   });
   var name=null;
-  console.log('this is name',name);
   const Display = async (event) => {
     event.preventDefault();
     const regId = document.querySelector("#reg").value;
-    console.log(regId);
     const { contract } = state;
     const getProduct = await contract.getProductById(regId);
-    console.log(getProduct);
-     name= getProduct[0];
+    name= getProduct[0];
     const des = getProduct[1];
-    console.log('this is name  inside',name);
-    console.log(des);
     setPrint({
       naam: name,
       description: des,
@@ -93,8 +85,8 @@ const DisplayProduct = () => {
     <>
       <div className="big">
         <h1>Verify Your Product</h1>
-        <div>
-          <form onClick={Display}>
+        <div >
+          <form className="chota" onClick={Display}>
             <div className="div">
               <label className="label-product">Product id</label>
               <input
@@ -124,10 +116,10 @@ const DisplayProduct = () => {
            
           </>
         ) : (
-          <div className="verified">
+          <div className="verified" data-aos="zoom-in-up">
           <h2>Your Product Has Been verified</h2>
-          <div className="product-name">{`Name : ${print.naam}`}</div>
-          <div className="product-disc">{`Description : ${print.description}`}</div>
+          <div className="product-name" >{`Name : ${print.naam}`}</div>
+          <div className="product-disc" >{`Description : ${print.description}`}</div>
         </div>
           
         )}

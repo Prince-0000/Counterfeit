@@ -15,9 +15,8 @@ const SignUpPeople = () => {
     const [account, setAccount] = useState("none");
     useEffect(()=>{
     const connectWallet = async () => {
-      const contractAddress = "0x149b73b0c5c6260bE6Af670c354bF3f53dCA5758"; //contract address
+      const contractAddress = "0x6830dA99A15dA10ADEa9E4E116084b56c47d3ae4"; //contract address
       const contractAbi = abi.abi; //fetching abi
-      console.log(contractAbi);
       try {
         const { ethereum } = window;
         const provider = new ethers.providers.Web3Provider(ethereum);
@@ -31,19 +30,13 @@ const SignUpPeople = () => {
           });
 
           const signer = provider.getSigner();
-          console.log(signer);
           const contract = new ethers.Contract(
             contractAddress,
             contractAbi,
             signer
           );
-          // const amount = {value:ethers.utils.parseEther("0.00000001")};
-          // await contract.buyCoffee("Prince","Bro",amount);
-          // const detail = await contract.getDetails();
-          // console.log("Detail: ",detail);
           setState({ provider, signer, contract });
           setAccount(account);
-          // console.log(account);
         } else {
           alert("Please install metamask");
         }
@@ -74,11 +67,9 @@ const SignUpPeople = () => {
     const event = receipt.events.find((event) => event.event === "CompanyCreated");
     
     // Extract the parameters from the event
-    const owner = event.args.owner;
-    const name = event.args.name;
+    // const owner = event.args.owner;
+    // const name = event.args.name;
     const registrationNumber = event.args.registrationNumber;
-    // console.log(owner);
-    // console.log(name);
     console.log(registrationNumber);
     alert(registrationNumber);
   }

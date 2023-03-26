@@ -26,7 +26,7 @@ const Product = () => {
   const [account, setAccount] = useState("none");
   useEffect(()=>{
     const connectWallet = async () => {
-      const contractAddress = "0x149b73b0c5c6260bE6Af670c354bF3f53dCA5758"; //contract address
+      const contractAddress = "0x6830dA99A15dA10ADEa9E4E116084b56c47d3ae4"; //contract address
       const contractAbi = abi.abi; //fetching abi
       console.log(contractAbi);
       try {
@@ -83,6 +83,7 @@ const Product = () => {
     const event = receipt.events.find((event) => event.event === "ProductAdded");
     console.log("2");
     const productId= event.args.productId;
+    alert(productId);
     console.log(productId);
     console.log(productId._hex);
     // const product = event.args.productId;
@@ -108,7 +109,7 @@ const Product = () => {
 
   return (
     <>
-      <div className="product">
+      <div className="product" data-aos="fade-down">
         <h1 className="heading">Add product</h1>
         <div>
           <form onSubmit={prod} className="form-product">
@@ -160,9 +161,10 @@ const Product = () => {
                 onChange={(event)=>setImage(event.target.value)}
               />
             </div> */}
-            <button type="submit" className="submit-product">
+            <div className="buttonParent"><button type="submit" className="submit-product">
               Submit
-            </button>
+            </button></div>
+            
           </form>
         </div>
       </div>
