@@ -53,13 +53,13 @@ const DisplayProduct = () => {
     naam: null,
     description: null,
   });
-  var name=null;
+  var name = null;
   const Display = async (event) => {
     event.preventDefault();
     const regId = document.querySelector("#reg").value;
     const { contract } = state;
     const getProduct = await contract.getProductById(regId);
-    name= getProduct[0];
+    name = getProduct[0];
     const des = getProduct[1];
     setPrint({
       naam: name,
@@ -67,23 +67,20 @@ const DisplayProduct = () => {
     });
   };
 
-
-  const handleDown=(event)=>{
-    if(event.keyCode === 8)
-    {
+  const handleDown = (event) => {
+    if (event.keyCode === 8) {
       setPrint({
         naam: null,
         description: null,
-      })
-
+      });
     }
-  }
-  
+  };
+
   return (
     <>
       <div className="big">
         <h1>Verify Your Product</h1>
-        <div >
+        <div>
           <form className="chota" onClick={Display}>
             <div className="div">
               <label className="label-product">Product id</label>
@@ -92,9 +89,7 @@ const DisplayProduct = () => {
                 id="reg"
                 placeholder="Product id"
                 name="regNo"
-                // value={product.regNo}
                 className="input-box"
-                // onChange={handleChange}
                 onKeyDown={handleDown}
               />
             </div>
@@ -105,21 +100,19 @@ const DisplayProduct = () => {
             </div>
           </form>
         </div>
-        {print.naam ===null?null:print.naam===name ?(
+        {print.naam === null ? null : print.naam === name ? (
           <>
-          <div className="un-verified">
-            <h2>Your Product is Fake !</h2>
-            <div className="connect">Complain </div>
-          </div>
-           
+            <div className="un-verified">
+              <h2>Your Product is Fake !</h2>
+              <div className="connect">Complain </div>
+            </div>
           </>
         ) : (
           <div className="verified" data-aos="zoom-in-up">
-          <h2>Your Product Has Been verified</h2>
-          <div className="product-name" >{`Name : ${print.naam}`}</div>
-          <div className="product-disc" >{`Description : ${print.description}`}</div>
-        </div>
-          
+            <h2>Your Product Has Been verified</h2>
+            <div className="product-name">{`Name : ${print.naam}`}</div>
+            <div className="product-disc">{`Description : ${print.description}`}</div>
+          </div>
         )}
       </div>
     </>
