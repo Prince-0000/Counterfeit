@@ -26,7 +26,7 @@ const Product = () => {
   const [account, setAccount] = useState("none");
   useEffect(()=>{
     const connectWallet = async () => {
-      const contractAddress = "0x6830dA99A15dA10ADEa9E4E116084b56c47d3ae4"; //contract address
+      const contractAddress = "0x6216942c230D8a94c0c3f46380Ab68E0940cD2Aa"; //contract address
       const contractAbi = abi.abi; //fetching abi
       console.log(contractAbi);
       try {
@@ -122,6 +122,7 @@ const Product = () => {
                 name="regNo"
                 value={product.regNo}
                 className="input-box"
+                autocomplete="off"
                 onChange={handleChange}
               />
             </div>
@@ -135,6 +136,7 @@ const Product = () => {
                 name="productName"
                 value={product.productName}
                 className="input-box"
+                autocomplete="off"
                 onChange={handleChange}
               />
             </div>
@@ -147,6 +149,7 @@ const Product = () => {
                 placeholder=" Description"
                 name="description"
                 className="input-box"
+                autocomplete="off"
                 value={product.description}
                 onChange={handleChange}
               />
