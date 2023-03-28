@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./DisplayProduct.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ethers } from "ethers";
 import abi from "../../build/Counterfeit.json";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -77,10 +77,7 @@ const DisplayProduct = () => {
 
     }
   }
-  // const handleSubmit=(event)=>{
-
-  //   console.log(event);
-  // }
+  
   return (
     <>
       <div className="big">
