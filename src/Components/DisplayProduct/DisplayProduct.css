@@ -55,6 +55,11 @@ h1{
 
 .un-verified
 {
-    border: 5px orange;
-    border-style: solid;
+    margin-top: 10px;
+    padding-top: 15px;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }

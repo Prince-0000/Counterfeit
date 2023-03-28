@@ -85,6 +85,7 @@ const Login = () => {
                 <input
                   type="email"
                   name="name"
+                  autocomplete="off"
                   value={User.name}
                   onChange={handleChange}
                 />
@@ -92,6 +93,7 @@ const Login = () => {
                 <input
                   type="password"
                   name="password"
+                  autocomplete="off"
                   value={User.password}
                   onChange={handleChange}
                 />

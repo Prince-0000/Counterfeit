@@ -15,7 +15,7 @@ const DisplayProduct = () => {
   useEffect(() => {
     // --------
     const connectWallet = async () => {
-      const contractAddress = "0x6830dA99A15dA10ADEa9E4E116084b56c47d3ae4"; //contract address
+      const contractAddress = "0x6216942c230D8a94c0c3f46380Ab68E0940cD2Aa"; //contract address
       const contractAbi = abi.abi; //fetching abi
       try {
         const { ethereum } = window;
@@ -53,7 +53,9 @@ const DisplayProduct = () => {
     naam: null,
     description: null,
   });
-  var name = null;
+
+  const [formSubmitted,setFormSubmitted]=useState(false);
+  let name=null;
   const Display = async (event) => {
     event.preventDefault();
     const regId = document.querySelector("#reg").value;
@@ -65,6 +67,8 @@ const DisplayProduct = () => {
       naam: name,
       description: des,
     });
+
+    setFormSubmitted(true);
   };
 
   const handleDown = (event) => {
@@ -76,6 +80,10 @@ const DisplayProduct = () => {
     }
   };
 
+  //   console.log(event);
+  // }
+  console.log('print name',print.name);
+  console.log('name',name);
   return (
     <>
       <div className="big">
@@ -87,6 +95,7 @@ const DisplayProduct = () => {
               <input
                 type="text"
                 id="reg"
+                autoComplete="off"
                 placeholder="Product id"
                 name="regNo"
                 className="input-box"
@@ -100,12 +109,14 @@ const DisplayProduct = () => {
             </div>
           </form>
         </div>
-        {print.naam === null ? null : print.naam === name ? (
+        
+        {print.naam === null ? null : print.naam===name ?(
           <>
-            <div className="un-verified">
-              <h2>Your Product is Fake !</h2>
-              <div className="connect">Complain </div>
-            </div>
+          <div className="un-verified"  data-aos="zoom-in-up">
+            <h2>Your Product is Fake !</h2>
+            <div className="connect">Complain </div>
+          </div>
+           
           </>
         ) : (
           <div className="verified" data-aos="zoom-in-up">
