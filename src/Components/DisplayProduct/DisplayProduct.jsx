@@ -10,6 +10,7 @@ const DisplayProduct = () => {
     signer: null,
     contract: null,
   });
+  console.log(abi);
   const [account, setAccount] = useState("none");
   useEffect(() => {
     // --------
