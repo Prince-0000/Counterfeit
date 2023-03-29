@@ -10,11 +10,12 @@ const DisplayProduct = () => {
     signer: null,
     contract: null,
   });
+  console.log(abi);
   const [account, setAccount] = useState("none");
   useEffect(() => {
     // --------
     const connectWallet = async () => {
-      const contractAddress = "0x6830dA99A15dA10ADEa9E4E116084b56c47d3ae4"; //contract address
+      const contractAddress = " 0x1eFd3D6BE0a4C22fCA5876Cb50234bbec95D96d8"; //contract address
       const contractAbi = abi.abi; //fetching abi
       try {
         const { ethereum } = window;
@@ -52,7 +53,9 @@ const DisplayProduct = () => {
     naam: null,
     description: null,
   });
-  var name=null;
+
+  const [formSubmitted,setFormSubmitted]=useState(false);
+  let name=null;
   const Display = async (event) => {
     event.preventDefault();
     const regId = document.querySelector("#reg").value;
@@ -64,6 +67,8 @@ const DisplayProduct = () => {
       naam: name,
       description: des,
     });
+
+    setFormSubmitted(true);
   };
 
 
@@ -81,6 +86,8 @@ const DisplayProduct = () => {
 
   //   console.log(event);
   // }
+  console.log('print name',print.name);
+  console.log('name',name);
   return (
     <>
       <div className="big">
@@ -92,6 +99,7 @@ const DisplayProduct = () => {
               <input
                 type="text"
                 id="reg"
+                autoComplete="off"
                 placeholder="Product id"
                 name="regNo"
                 // value={product.regNo}
@@ -107,9 +115,10 @@ const DisplayProduct = () => {
             </div>
           </form>
         </div>
-        {print.naam ===null?null:print.naam===name ?(
+        
+        {print.naam === null ? null : print.naam===name ?(
           <>
-          <div className="un-verified">
+          <div className="un-verified"  data-aos="zoom-in-up">
             <h2>Your Product is Fake !</h2>
             <div className="connect">Complain </div>
           </div>

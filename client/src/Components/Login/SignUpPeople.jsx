@@ -15,7 +15,7 @@ const SignUpPeople = () => {
     const [account, setAccount] = useState("none");
     useEffect(()=>{
     const connectWallet = async () => {
-      const contractAddress = "0x6830dA99A15dA10ADEa9E4E116084b56c47d3ae4"; //contract address
+      const contractAddress = " 0x1eFd3D6BE0a4C22fCA5876Cb50234bbec95D96d8"; //contract address
       const contractAbi = abi.abi; //fetching abi
       try {
         const { ethereum } = window;
@@ -132,6 +132,7 @@ const SignUpPeople = () => {
               placeholder = "Enter company name"
               type="text"
               name="name"
+              autocomplete="off"
               value={compName}
               onChange={handleNameChange}
             />
@@ -139,6 +140,7 @@ const SignUpPeople = () => {
             <input
               type="email"
               name="name"
+              autocomplete="off"
               value={User.name}
               onChange={handleChange}
             />
@@ -146,6 +148,7 @@ const SignUpPeople = () => {
             <input
               type="password"
               name="password"
+              autocomplete="off"
               value={User.password}
               onChange={handleChange}
             />
