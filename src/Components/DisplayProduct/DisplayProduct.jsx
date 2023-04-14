@@ -95,7 +95,7 @@ const DisplayProduct = () => {
               <input
                 type="text"
                 id="reg"
-                autoComplete="off"
+                // autoComplete="off"
                 placeholder="Product id"
                 name="regNo"
                 className="input-box"
