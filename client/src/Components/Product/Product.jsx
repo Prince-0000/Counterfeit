@@ -26,7 +26,7 @@ const Product = () => {
   const [account, setAccount] = useState("none");
   useEffect(()=>{
     const connectWallet = async () => {
-      const contractAddress = " 0x1eFd3D6BE0a4C22fCA5876Cb50234bbec95D96d8"; //contract address
+      const contractAddress = "0xb0f336303b146B217f3722857f2819bEbb551B7d"; //contract address
       const contractAbi = abi.abi; //fetching abi
       console.log(contractAbi);
       try {

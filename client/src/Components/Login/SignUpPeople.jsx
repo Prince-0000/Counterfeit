@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import abi from "../../build/Counterfeit.json";
+import abi from '../../build/Counterfeit.json';
 import "./SignUpPeople.css";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../fire";
@@ -15,8 +15,9 @@ const SignUpPeople = () => {
     const [account, setAccount] = useState("none");
     useEffect(()=>{
     const connectWallet = async () => {
-      const contractAddress = " 0x1eFd3D6BE0a4C22fCA5876Cb50234bbec95D96d8"; //contract address
+      const contractAddress = "0xb0f336303b146B217f3722857f2819bEbb551B7d"; //contract address
       const contractAbi = abi.abi; //fetching abi
+      console.log(contractAbi);
       try {
         const { ethereum } = window;
         const provider = new ethers.providers.Web3Provider(ethereum);
@@ -30,13 +31,16 @@ const SignUpPeople = () => {
           });
 
           const signer = provider.getSigner();
+          console.log(signer);
           const contract = new ethers.Contract(
             contractAddress,
             contractAbi,
             signer
           );
+          console.log(contract);
           setState({ provider, signer, contract });
           setAccount(account);
+          console.log(state);
         } else {
           alert("Please install metamask");
         }
@@ -132,7 +136,7 @@ const SignUpPeople = () => {
               placeholder = "Enter company name"
               type="text"
               name="name"
-              autocomplete="off"
+              autoComplete="off"
               value={compName}
               onChange={handleNameChange}
             />
@@ -140,7 +144,7 @@ const SignUpPeople = () => {
             <input
               type="email"
               name="name"
-              autocomplete="off"
+              autoComplete="off"
               value={User.name}
               onChange={handleChange}
             />
@@ -148,7 +152,7 @@ const SignUpPeople = () => {
             <input
               type="password"
               name="password"
-              autocomplete="off"
+              autoComplete="off"
               value={User.password}
               onChange={handleChange}
             />
