@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import abi from "../../build/Counterfeit.json";
+import abi from '../../build/Counterfeit.json';
 import "./SignUpPeople.css";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../fire";
@@ -15,8 +15,13 @@ const SignUpPeople = () => {
     const [account, setAccount] = useState("none");
     useEffect(()=>{
     const connectWallet = async () => {
+<<<<<<< HEAD:src/Components/Login/SignUpPeople.jsx
       const contractAddress = "0x6216942c230D8a94c0c3f46380Ab68E0940cD2Aa"; //contract address
+=======
+      const contractAddress = "0xb0f336303b146B217f3722857f2819bEbb551B7d"; //contract address
+>>>>>>> a0854fc9c83591a701becf686856fe6637ae98da:client/src/Components/Login/SignUpPeople.jsx
       const contractAbi = abi.abi; //fetching abi
+      console.log(contractAbi);
       try {
         const { ethereum } = window;
         const provider = new ethers.providers.Web3Provider(ethereum);
@@ -30,13 +35,16 @@ const SignUpPeople = () => {
           });
 
           const signer = provider.getSigner();
+          console.log(signer);
           const contract = new ethers.Contract(
             contractAddress,
             contractAbi,
             signer
           );
+          console.log(contract);
           setState({ provider, signer, contract });
           setAccount(account);
+          console.log(state);
         } else {
           alert("Please install metamask");
         }
@@ -132,7 +140,11 @@ const SignUpPeople = () => {
               placeholder = "Enter company name"
               type="text"
               name="name"
+<<<<<<< HEAD:src/Components/Login/SignUpPeople.jsx
               autocomplete="off"
+=======
+              autoComplete="off"
+>>>>>>> a0854fc9c83591a701becf686856fe6637ae98da:client/src/Components/Login/SignUpPeople.jsx
               value={compName}
               onChange={handleNameChange}
             />
@@ -140,7 +152,11 @@ const SignUpPeople = () => {
             <input
               type="email"
               name="name"
+<<<<<<< HEAD:src/Components/Login/SignUpPeople.jsx
               autocomplete="off"
+=======
+              autoComplete="off"
+>>>>>>> a0854fc9c83591a701becf686856fe6637ae98da:client/src/Components/Login/SignUpPeople.jsx
               value={User.name}
               onChange={handleChange}
             />
@@ -148,7 +164,11 @@ const SignUpPeople = () => {
             <input
               type="password"
               name="password"
+<<<<<<< HEAD:src/Components/Login/SignUpPeople.jsx
               autocomplete="off"
+=======
+              autoComplete="off"
+>>>>>>> a0854fc9c83591a701becf686856fe6637ae98da:client/src/Components/Login/SignUpPeople.jsx
               value={User.password}
               onChange={handleChange}
             />
